@@ -1,0 +1,162 @@
+.result-dashboard {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  height: fit-content;
+  text-align: center;
+}
+
+.dashboard-header h3 {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header h2 {
+  font-size: 2rem;
+  background: linear-gradient(to right, #fff, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gauge-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circular-chart {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: var(--bg-tertiary);
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1.5s ease-out, stroke 0.5s ease;
+}
+
+.risk-safe .circle { stroke: var(--status-success); }
+.risk-warning .circle { stroke: var(--status-warning); }
+.risk-danger .circle { stroke: var(--status-danger); }
+
+.percentage {
+  fill: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.5em;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.risk-label {
+  fill: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.15em;
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.metric-card {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metric-card.safe { border-bottom: 2px solid var(--status-success); }
+.metric-card.warning { border-bottom: 2px solid var(--status-warning); }
+.metric-card.danger { border-bottom: 2px solid var(--status-danger); }
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.recommendation {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: left;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.recommendation.safe {
+  background: var(--status-success-bg);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: var(--status-success);
+}
+
+.recommendation.warning {
+  background: var(--status-warning-bg);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: var(--status-warning);
+}
+
+.recommendation.danger {
+  background: var(--status-danger-bg);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--status-danger);
+}
+
+.recommendation-icon {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.recommendation p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.recommendation strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+/* Entry Animation */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-in {
+  animation: slideInRight var(--transition-slow) forwards;
+}
